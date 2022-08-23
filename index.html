@@ -13,7 +13,9 @@
   <script>
     stlite.mount({
       requirements: ["opencv-python", "matplotlib"],
-      mainScriptData: `
+      entrypoint: "streamlit_app.py",
+      files: {
+        "streamlit_app.py": `
 import io
 
 import streamlit as st
@@ -123,9 +125,10 @@ for col, img, label in zip(columns, imgs, labels):
 
         st.pyplot(fig)
 
-`,
-      container: document.getElementById("root")
-    })
+`
+      },
+    },
+    document.getElementById("root"))
   </script>
 </body>
 </html>
